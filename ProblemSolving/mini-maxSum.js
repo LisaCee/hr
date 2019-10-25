@@ -24,13 +24,21 @@ function readLine() {
 
 // Complete the miniMaxSum function below.
 
+// function miniMaxSum(arr) {
+//     let sorted = arr.sort((a, b) => a - b);
+//     let min = sorted.slice(0, 4).reduce((a, b) => a + b);
+//     let max = sorted.slice(1).reduce((a, b) => a + b);
+
+//     console.log(min, max);
+// }
+
 function miniMaxSum(arr) {
-    let sorted = arr.sort((a, b) => a - b);
-    let min = sorted.slice(0, 4).reduce((a, b) => a + b);
-    let max = sorted.slice(1).reduce((a, b) => a + b);
-
-    console.log(min, max);
-
+    let min = Math.min(...arr);
+    let max = Math.max(...arr);
+    let sum = arr.reduce((a, b) => a + b);
+    let minSum = sum - max;
+    let maxSum = sum - min;
+    console.log(minSum, maxSum)
 }
 
 function main() {
