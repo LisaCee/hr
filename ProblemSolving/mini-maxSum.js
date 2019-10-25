@@ -25,29 +25,11 @@ function readLine() {
 // Complete the miniMaxSum function below.
 
 function miniMaxSum(arr) {
-    if (arr.length !== 5) {
-        return []
-    } 
-    let min = Math.floor(Math.random() * (10000) + 1000);
-    let max = 0;
-    for (let i = 0; i < arr.length; i++) {
-        let shortArr = []
-        for (let j = 0; j < 4; j++) {
-            shortArr.push(arr[(i+j) % arr.length])
-        }
-        let sum = shortArr.reduce((a, b) => a + b)
-        if (sum < min) {
-          min = sum
-          shortArr = []
-        } else if (sum > max) {
-          max = sum;
-          shortArr = []
-        }
-            
-    }
-    console.log(min, max)
+    let sorted = arr.sort((a, b) => a - b);
+    let min = sorted.slice(0, 4).reduce((a, b) => a + b);
+    let max = sorted.slice(1).reduce((a, b) => a + b);
 
-
+    console.log(min, max);
 
 }
 
