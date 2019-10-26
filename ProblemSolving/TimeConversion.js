@@ -32,11 +32,18 @@ function timeConversion(s) {
         array[0] = parseInt(array[0]) + 12
         array[0] = array[0].toString().padStart(2, '0')
         array[1] = array[1].toString().padStart(2, '0')
+        array[2] = array[2].toString().padStart(2, '0')
         return array.join(':')
     } else if (s.includes('AM') && array[0] == 12)  {
         array[0] = parseInt(array[0]) -12;
         array[0] = array[0].toString().padStart(2, '0')
         array[1] = array[1].toString().padStart(2, '0')
+         array[2] = array[2].toString().padStart(2, '0')
+        return array.join(':')
+    } else if (s.includes('AM')) {
+      array[0] = array[0].toString().padStart(2, '0')
+        array[1] = array[1].toString().padStart(2, '0')
+         array[2] = array[2].toString().padStart(2, '0')
         return array.join(':')
     }
         else {
