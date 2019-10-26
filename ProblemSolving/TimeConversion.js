@@ -26,12 +26,20 @@ function readLine() {
  * Complete the timeConversion function below.
  */
 function timeConversion(s) {
+    let array = s.split(':');
+    array[2] = parseInt(array[2])
     if (s.includes('PM')) {
-        let array = s.split(':');
         array[0] = parseInt(array[0]) + 12
-        array[2] = parseInt(array[2])
+        array[0] = array[0].toString().padStart(2, '0')
+        array[1] = array[1].toString().padStart(2, '0')
         return array.join(':')
-    } else {
+    } else if (s.includes('AM') && array[0] == 12)  {
+        array[0] = parseInt(array[0]) -12;
+        array[0] = array[0].toString().padStart(2, '0')
+        array[1] = array[1].toString().padStart(2, '0')
+        return array.join(':')
+    }
+        else {
         return s[-2]
     }
 }
