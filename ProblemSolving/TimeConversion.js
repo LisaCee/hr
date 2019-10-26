@@ -28,13 +28,20 @@ function readLine() {
 function timeConversion(s) {
     let array = s.split(':');
     array[2] = parseInt(array[2])
+    if (s.includes('PM') && array[0] == 12) {
+        array[0] = 12
+        array[0] = array[0].toString().padStart(2, '0')
+        array[1] = array[1].toString().padStart(2, '0')
+        array[2] = array[2].toString().padStart(2, '0')
+        return array.join(':')
+    } 
     if (s.includes('PM')) {
         array[0] = parseInt(array[0]) + 12
         array[0] = array[0].toString().padStart(2, '0')
         array[1] = array[1].toString().padStart(2, '0')
         array[2] = array[2].toString().padStart(2, '0')
         return array.join(':')
-    } else if (s.includes('AM') && array[0] == 12)  {
+    }else if (s.includes('AM') && array[0] == 12)  {
         array[0] = parseInt(array[0]) -12;
         array[0] = array[0].toString().padStart(2, '0')
         array[1] = array[1].toString().padStart(2, '0')
@@ -50,7 +57,6 @@ function timeConversion(s) {
         return s[-2]
     }
 }
-
 function main() {
     const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
 
