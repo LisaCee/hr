@@ -33,27 +33,15 @@ function readLine() {
 
 function getTotalX(a, b) {
     // Write your code here
-    let totalX = 0;
-
-    for (let i = 0; i < b.length; i++) {
-        if (b[i] % a[0] !== 0) {
-            return totalX;
-        } else if (b[i] % a[1] !==0) {
-            return totalX;
+    let total = 0;
+    for (let i = 1; i <= 100; i++) {
+        if(a.every((num) => i % num === 0)){
+            if(b.every((num) => num % i === 0)) {
+                total ++
+            }
         }
-
     }
-    let array = [...a];
-    // i want to get an array of all integers
-    // ex [2, 4*, 8*, 12*, 16*, 32, 96]
-    let lcf = 2;
-    let num = a[1] * lcf
-    console.log(b[b.length -1])
-    for (let i = num; i <= b[1]; i *=lcf) {
-        array.push(i)
-    }
-    console.log(array)
-    return totalX;
+    return total;
 }
 
 function main() {
