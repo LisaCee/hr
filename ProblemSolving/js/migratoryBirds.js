@@ -24,29 +24,42 @@ function readLine() {
 
 // Complete the migratoryBirds function below.
 function migratoryBirds(arr) {
-    let cache = {}
+//     let cache = {}
 
-    for (let id of arr) {
-      if (cache[id]) {
-        cache[id]++
-      } else {
-        cache[id] = 1
+//     for (let id of arr) {
+//       if (cache[id]) {
+//         cache[id]++
+//       } else {
+//         cache[id] = 1
+//       }
+//     }
+
+//   let array = []
+//   for (let id in cache) {
+//     array.push([id, cache[id]])
+//   }
+
+//   array.sort((a, b) => {
+//     return a[1] - b[1]
+//   })  
+//     if (array[array.length - 1][1] === array[array.length - 2][1]) {
+//         return array[array.length - 2][0]
+//     }
+//   return array[array.length - 1][0]
+
+let array = [0, 0, 0, 0, 0]
+    for (let i = 0; i < arr.length; i++) {
+      array[arr[i]-1]++
+    }
+    let qty = array[0]
+    let index = 0
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] > qty) {
+        qty = array[i]
+        index = i
       }
     }
-
-  let array = []
-  for (let id in cache) {
-    array.push([id, cache[id]])
-  }
-
-  array.sort((a, b) => {
-    return a[1] - b[1]
-  })  
-    if (array[array.length - 1][1] === array[array.length - 2][1]) {
-        return array[array.length - 2][0]
-    }
-  return array[array.length - 1][0]
-
+    return index+1
 
 }
 
