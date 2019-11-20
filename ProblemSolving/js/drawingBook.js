@@ -26,47 +26,17 @@ function readLine() {
  * Complete the pageCount function below.
  */
 function pageCount(n, p) {
-   let turns = 0;
-    if (p > n) {return null}
-    if (p == 1 || p == n) {return 0}
-
-    
-    if (n % 2 === 0) {
-      // even number of pages, single page at end
-      if (p <= n/2) {
-        // start at front
-      for (let i = 2; i <= p; i+=2) {
-        turns += 1
-      }
-    } // start at end
-    else if (p >= n/2) {
-        for (let i = n; i <= p; i+=2) {
-            turns += 1
-        }
+   let frontToMidTarget = p/2
+    let backtoMidTarget = n/2 - frontToMidTarget;
+    if (p === 1 || p === n) {
+        return 0
     }
-
-
+     if (n % 2 === 0 && n - 1 === p) {
+        return Math.floor(Math.min(frontToMidTarget, backtoMidTarget) + 1)
     } else {
-      // odd number of pages, double page at end
-      if (p === n - 1) {
-        // if it's within last 2 pages
-        return 0;
-      }
-      if (p <= n/2) {
-        // start at beginning
-        for (let i = 2; i <= p; i+=2) {
-          turns += 1
-        }
-      }
-        else if (p >= n/2) {
-         for (let i = p; i <= n-2; i+=2) {
-            turns += 1
-        }
-      }
-    }
-    return turns;
 
-    // return Math.floor(Math.min(p/2, n/2-p/2))
+    return Math.floor(Math.min(frontToMidTarget, backtoMidTarget))
+    } 
 }
 
 function main() {
