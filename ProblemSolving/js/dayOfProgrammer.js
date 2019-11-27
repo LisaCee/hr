@@ -1,15 +1,9 @@
 function dayOfProgrammer(year) {
-    //day of programmer = 256
-    // julian 1700 - 1917
-    // leap / 4
-    // gregorial 1919-2700
-    
-    // 1918, January 31 -> Feb 14 (32nd day)
-  
-
     // figure out calendar system
     // leap year
     // end of year - 109 days
+
+    // thank you to this [video](https://www.youtube.com/watch?v=izcafFpBSoM) for telling me the dates.  I did all of the logic.
     if (year === 1918) {
       // transition year
       return '26.09.1918'
