@@ -27,11 +27,8 @@ function readLine() {
 // Complete the hurdleRace function below.
 function hurdleRace(k, height) {
     let maxHurdle =  height.sort((a, b) => b - a)
-    let potion = 0
-    if (maxHurdle[0] - k > 0) {
-        potion += maxHurdle[0] - k
-        }
-    return potion
+    
+    return maxHurdle[0] - k > 0 ? maxHurdle[0] - k: 0
 
 }
 
